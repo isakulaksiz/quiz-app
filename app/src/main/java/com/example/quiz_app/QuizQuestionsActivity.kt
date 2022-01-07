@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.quiz_app.databinding.ActivityMainBinding
 import com.example.quiz_app.databinding.ActivityQuizQuestionsBinding
@@ -31,13 +32,18 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         binding.tvOptionTwo.setOnClickListener(this)
         binding.tvOptionThree.setOnClickListener(this)
         binding.tvOptionFour.setOnClickListener(this)
+        binding.btnSubmit.setOnClickListener(this)
     }
 
     private fun setQuestion(){
-        mCurrentPosition = 1
+        //mCurrentPosition = 1
         val question = mQuestionsList!![mCurrentPosition-1]
 
         defaultOptionsView()
+
+        if(mCurrentPosition == mQuestionsList!!.size)
+            binding.btnSubmit.text = "BİTİR"
+        else binding.btnSubmit.text = "SONRAKİ SORU"
 
         binding.progressBar.progress = mCurrentPosition
         binding.tvProgress.text = "$mCurrentPosition" + "/" + binding.progressBar.max
@@ -64,6 +70,31 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun answerView(answer: Int, drawableView: Int){
+        when(answer){
+            1 -> {
+                binding.tvOptionOne.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            2 -> {
+                binding.tvOptionTwo.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            3 -> {
+                binding.tvOptionThree.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            4 -> {
+                binding.tvOptionFour.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+        }
+    }
+
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.tv_option_one ->
@@ -74,6 +105,28 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 selectedOptionView(binding.tvOptionThree, 3)
             R.id.tv_option_four ->
                 selectedOptionView(binding.tvOptionFour, 4)
+            R.id.btn_submit -> {
+                if(mSelectedOptionPosition == 0){
+                    mCurrentPosition+=1
+                    when{
+                        mCurrentPosition <= mQuestionsList!!.size -> {
+                            setQuestion()
+                        }else -> Toast.makeText(this, "Soruları tamamladın!", Toast.LENGTH_SHORT).show()
+                    }
+                }else{
+                    val question  = mQuestionsList?.get(mCurrentPosition-1)
+                    if(question!!.correctAnswer != mSelectedOptionPosition)
+                        answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
+                    answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
+
+                    // son soruyu kontrol et
+                    if(mCurrentPosition == mQuestionsList!!.size){
+                        binding.btnSubmit.text = "BİTİR"
+                    }else
+                        binding.btnSubmit.text = "SONRAKİ SORU"
+                    mSelectedOptionPosition = 0
+                }
+            }
         }
     }
 
