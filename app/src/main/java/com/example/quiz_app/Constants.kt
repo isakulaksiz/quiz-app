@@ -3,6 +3,10 @@ package com.example.quiz_app
 import com.example.quiz_app.model.Questions
 
 object Constants{
+    const val USER_NAME: String = "user_name"
+    const val TOTAL_QUESTIONS: String = "total_question"
+    const val CORRECT_ANSWERS: String = "correct_answer"
+
     fun getQuestions(): ArrayList<Questions>{
         val questionsList = ArrayList<Questions>()
 
