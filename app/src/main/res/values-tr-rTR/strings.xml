@@ -5,4 +5,14 @@
     <string name="second_mes">Lütfen isim giriniz:</string>
     <string name="third_mes">İsim:</string>
     <string name="start">Başlat</string>
+
+    <!-- -->
+    <string name="second_page_first_mes">Bu bayrak hangi ülkeye ait?</string>
+    <string name="second_page_button">Sonraki soru</string>
+
+    <!-- -->
+    <string name="third_page_congrats">Tebrikler!</string>
+    <string name="third_page_user">İsim</string>
+    <string name="third_page_check_answers">Puan</string>
+    <string name="third_page_btn">BİTİR</string>
 </resources>
