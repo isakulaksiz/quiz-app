@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+
+        <item
+            android:id="@+id/btn_turkish_translate"
+            android:icon="@drawable/ic_baseline_info_24"
+            android:title="TURKISH" />
+        <item
+            android:id="@+id/btn_english_translate"
+            android:icon="@drawable/ic_baseline_info_24"
+            android:title="ENGLISH" />
+
+    </group>
+</menu>

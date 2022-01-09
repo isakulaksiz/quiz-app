@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">quiz-app</string>
+    <string name="project_name">Quiz Uygulaması</string>
+    <string name="first_mes">Hoşgeldin</string>
+    <string name="second_mes">Lütfen isim giriniz:</string>
+    <string name="third_mes">İsim:</string>
+    <string name="start">Başlat</string>
+</resources>

@@ -13,7 +13,7 @@
         android:id="@+id/tv_id_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quiz Application"
+        android:text="@string/project_name"
         android:layout_marginBottom="30dp"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Hoşgeldin"
+                android:text="@string/first_mes"
                 android:textColor="#363A43"
                 android:textSize="30sp"
                 android:textStyle="bold|italic"/>
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Lütfen isminizi giriniz:"
+                android:text="@string/second_mes"
                 android:textColor="#7A9089"
                 android:textSize="16sp" />
 
@@ -62,7 +62,7 @@
                     android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="İsim"
+                    android:hint="@string/third_mes"
                     android:textColor="#363A43"
                     android:textColorHint="#7A9089"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:layout_marginTop="16dp"
-                android:text="Başlat"
+                android:text="@string/start"
                 android:textColor="@color/white"
                 android:textSize="18sp">
 
@@ -81,5 +81,20 @@
 
 
     </androidx.cardview.widget.CardView>
-
+    <ImageButton
+        android:id="@+id/buttonSettings"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="false"
+        android:layout_margin="20dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:gravity="center|bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_language_24" />
 </LinearLayout>
