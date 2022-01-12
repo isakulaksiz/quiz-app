@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
+import com.example.quiz_app.catcheslog.CrashExceptionHandler
 import com.example.quiz_app.databinding.ActivityMainBinding
 import com.example.quiz_app.languagepack.LanguageSettings
 
@@ -19,6 +20,10 @@ class MainActivity : AppCompatActivity() {
         initLanguage()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        Thread.setDefaultUncaughtExceptionHandler(
+            CrashExceptionHandler(this, MainActivity::class.java)
+        )
 
         // main sayfasının yukarısında bildirimleri kaldır
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
