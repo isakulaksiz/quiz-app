@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var languageSettings: LanguageSettings
     var language: String = ""
+    var test: String = "quorion"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initLanguage()
